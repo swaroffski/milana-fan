@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { Container, Typography, Box, Paper } from "@mui/material";
 import Image from "next/image";
+
 import LikeButton from "../components/LikeButton";
 
 
