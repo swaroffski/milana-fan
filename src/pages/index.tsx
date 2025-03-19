@@ -1,11 +1,11 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Container, Typography, Box, Paper } from "@mui/material";
+import { Container, Box } from "@mui/material";
 import Image from "next/image";
 
 import LikeButton from "../components/LikeButton";
-
+import TextBlock from "../components/TextBlock";
 
 const images: string[] = [
     "/images/milana0.jpg",
@@ -82,29 +82,12 @@ export default function Home() {
                 </Box>
             </Box>
 
+            {/* Используем новый компонент TextBlock */}
             <Box sx={{ maxWidth: 500, position: "relative", padding: 2 }}>
-                <Paper
-                    sx={{
-                        padding: 3,
-                        backgroundColor: "#f9f9f9",
-                        borderRadius: 2,
-                        boxShadow: 3,
-                        opacity: 0,
-                        animation: "fadeIn 1.5s ease-in-out forwards",
-                        "@keyframes fadeIn": {
-                            "0%": { opacity: 0 },
-                            "100%": { opacity: 1 },
-                        },
-                    }}
-                >
-                    <Typography variant="h4" fontWeight="bold">
-                        Милана Хаметова
-                    </Typography>
-                    <Typography variant="body1" sx={{ mt: 2 }}>
-                        Популярный блогер, певица и TikTok-звезда. Успешно развивает свою карьеру в социальных сетях и вдохновляет миллионы подписчиков.
-                    </Typography>
-                </Paper>
-
+                <TextBlock
+                    title="Милана Хаметова"
+                    content="Популярная блогерша, певица и TikTok-звезда. Успешно развивает свою карьеру в социальных сетях и вдохновляет миллионы подписчиков."
+                />
                 <Box sx={{ mt: 2, display: "flex", justifyContent: "flex-end" }}>
                     <LikeButton />
                 </Box>
