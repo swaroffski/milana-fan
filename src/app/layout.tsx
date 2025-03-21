@@ -1,6 +1,7 @@
-// app/layout.js
-import '@fontsource/montserrat'
-export default function Layout({ children }) {
+import '@fontsource/montserrat';
+import Footer from '../components/Footer';
+
+export default function Layout({ children }: { children: React.ReactNode }) {
     return (
         <html lang="ru">
             <head>
@@ -10,6 +11,7 @@ export default function Layout({ children }) {
             </head>
             <body>
                 {children}
+                <Footer />
             </body>
         </html>
     );
