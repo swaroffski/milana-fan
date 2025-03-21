@@ -12,12 +12,12 @@ export default function Footer() {
                 position: "relative",
                 bottom: 0,
                 width: "100%",
-                fontSize: "12px",
+                fontSize: "6px",
             }}
         >
             <Typography>
-                Сайт разработан на исходном открытом коде{" "}
-                <Link href="https://github.com/your-github" target="_blank" color="inherit">
+                Сайт разработан на исходном открытом коде. Javascript + Node.js + react{" "}
+                <Link href="https://github.com/swaroffski/milana-fan" target="_blank" color="inherit">
                     GitHub
                 </Link>
             </Typography>
