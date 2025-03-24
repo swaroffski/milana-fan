@@ -10,7 +10,7 @@ import Footer from "../components/Footer"; // Импортируем футер
 export default function Home() {
     return (
         <>
-            <Container
+            <Box
                 sx={{
                     display: "flex",
                     flexDirection: { xs: "column", md: "row" },
@@ -18,6 +18,9 @@ export default function Home() {
                     justifyContent: "center",
                     minHeight: "100vh",
                     gap: 4,
+                    width: "100vw", // Добавляем 100% ширины экрана
+                    padding: 0, // Убираем внутренние отступы
+                    margin: 0, // Убираем внешние отступы
                 }}
             >
                 {/* Компонент с картинкой */}
@@ -33,7 +36,7 @@ export default function Home() {
                         <LikeButton />
                     </Box>
                 </Box>
-            </Container>
+            </Box>
 
             {/* Добавляем футер внизу */}
             <Footer />

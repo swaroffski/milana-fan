@@ -8,13 +8,15 @@ export default function Footer() {
                 backgroundColor: "#333",
                 color: "white",
                 padding: "5px 15px", // Минимальная высота
+                margin: "0 auto", // Центрируем футер
+                width: "100vw", // Чтобы не
                 position: "relative",
                 bottom: 0,
-                width: "100%",
                 fontSize: "5px", // Мелкий шрифт для всех элементов
                 display: "flex",
                 justifyContent: "space-between",
                 alignItems: "flex-end", // Прижимаем текст к низу футера
+                boxSizing: "border-box", // Учитываем padding в ширине
             }}
         >
             {/* Левая часть: три строки */}
