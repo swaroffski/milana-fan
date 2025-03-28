@@ -16,30 +16,30 @@ const images: string[] = [
 ];
 
 export default function ImageCard() {
-  // Храним индекс текущего изображения
   const [currentIndex, setCurrentIndex] = useState<number>(0);
-  // Ссылка на контейнер с изображением для анимации
   const imageContainerRef = useRef<HTMLDivElement>(null);
-  // ID интервала для автоматической смены
   const intervalRef = useRef<number | null>(null);
 
   // Функция плавного перехода с использованием GSAP
   const animateTransition = (newIndex: number) => {
     if (imageContainerRef.current) {
+      const direction = Math.random() > 0.5 ? 1 : -1; // Случайное направление (влево/вправо)
       gsap.to(imageContainerRef.current, {
-        duration: 0.5,
-        x: 100,
+        duration: 0.7,
+        x: direction * 200, // Отлет в сторону
         opacity: 0,
+        scale: 0.7,
         ease: "power2.out",
         onComplete: () => {
           // Обновляем индекс изображения после анимации выхода
           setCurrentIndex(newIndex);
-          // Сброс позиции для анимации входа
-          gsap.set(imageContainerRef.current, { x: -100 });
+          // Сброс позиции и восстановление видимости для анимации входа
+          gsap.set(imageContainerRef.current, { x: -direction * 200, scale: 0.7 });
           gsap.to(imageContainerRef.current, {
-            duration: 0.5,
+            duration: 0.7,
             x: 0,
             opacity: 1,
+            scale: 1,
             ease: "power2.in",
           });
         },
@@ -49,7 +49,6 @@ export default function ImageCard() {
     }
   };
 
-  // Функция выбора следующего изображения, равномерно распределённого и не совпадающего с текущим
   const changeImage = () => {
     let newIndex = Math.floor(Math.random() * images.length);
     if (newIndex === currentIndex) {
@@ -58,22 +57,18 @@ export default function ImageCard() {
     animateTransition(newIndex);
   };
 
-  // Запускаем автоматическую смену изображений
   useEffect(() => {
     intervalRef.current = window.setInterval(changeImage, 3000);
     return () => {
       if (intervalRef.current) clearInterval(intervalRef.current);
     };
-    // Не включаем currentIndex в зависимости, чтобы не сбрасывать интервал при каждом изменении
   }, []);
 
-  // Обработчик клика: сбрасывает интервал и сразу меняет изображение
   const handleImageClick = () => {
     if (intervalRef.current) {
       clearInterval(intervalRef.current);
     }
     changeImage();
-    // Перезапускаем интервал
     intervalRef.current = window.setInterval(changeImage, 3000);
   };
 
@@ -103,6 +98,7 @@ export default function ImageCard() {
           fill
           style={{
             objectFit: "contain",
+            transition: "transform 0.2s ease-in-out",
           }}
         />
       </Box>
