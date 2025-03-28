@@ -30,6 +30,7 @@
     "find-root": "^1.1.0",
     "function-bind": "^1.1.2",
     "globals": "^11.12.0",
+    "gsap": "^3.12.7",
     "hasown": "^2.0.2",
     "hoist-non-react-statics": "^3.3.2",
     "import-fresh": "^3.3.1",
