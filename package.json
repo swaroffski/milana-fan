@@ -92,6 +92,7 @@
   },
   "homepage": "https://github.com/swaroffski/milana-fan#readme",
   "devDependencies": {
-    "@types/node": "22.13.10"
+    "@types/node": "22.13.10",
+    "@types/react": "19.0.12"
   }
 }
